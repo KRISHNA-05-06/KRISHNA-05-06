@@ -1,310 +1,203 @@
-```
-SnowSQL v1.4.2
-Type SQL statements or !help
+<div align="center">
 
-sri#COMPUTE_WH@PORTFOLIO.PUBLIC>
-```
+# Sri Krishna Sai Kota
 
-<table>
-<tr>
-<td>
+**Data & AI Engineer** &nbsp;|&nbsp; Tampa, FL &nbsp;|&nbsp; M.S. Computer Science, USF (May 2026)
 
-**Sri Krishna Sai Kota**
-Data & AI Engineer
+<a href="https://krishna-05-06.github.io"><img src="https://img.shields.io/badge/Portfolio-1F4E79?style=for-the-badge&logoColor=white"/></a>
+<a href="https://linkedin.com/in/srikrishnasai/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/></a>
+<a href="mailto:srikrishnasaikota1@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+<a href="https://github.com/KRISHNA-05-06/Data-Engineer-Projects"><img src="https://img.shields.io/badge/All_Projects-29B5E8?style=for-the-badge&logo=github&logoColor=white"/></a>
 
-</td>
-<td>
-
-[Portfolio](https://krishna-05-06.github.io) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/srikrishnasai/) &nbsp;·&nbsp; [Email](mailto:srikrishnasaikota1@gmail.com) &nbsp;·&nbsp; [All 10 projects](https://github.com/KRISHNA-05-06/Data-Engineer-Projects)
-
-</td>
-</tr>
-</table>
-
----
-
-```sql
-SELECT * FROM engineer WHERE github = 'KRISHNA-05-06';
-```
-
-| FIELD | VALUE |
-|---|---|
-| ROLE | Data & AI Engineer |
-| LOCATION | Tampa, FL &nbsp;`(relocatable = TRUE)` |
-| EDUCATION | M.S. Computer Science, University of South Florida &nbsp;`(May 2026)` |
-| EXPERIENCE | 4+ years, production data systems, banking and financial services |
-| SCALE | 200M+ financial records daily, 100+ orchestrated ETL jobs |
-| NOW_BUILDING | Snowflake native clinical research platform on synthetic oncology data |
-| OPEN_TO | Data Engineer &nbsp;·&nbsp; AI Engineer &nbsp;·&nbsp; ML Engineer |
-
-```
-1 row returned. Elapsed 0.041s.
-```
-
----
-
-```sql
--- What I actually do, in one sentence
-SELECT thesis FROM engineer;
-```
-
-> I take data that arrives unstructured, undocumented, or in four incompatible formats,
-> and turn it into something a warehouse can govern and a researcher can query.
-> When I claim an accuracy number, there is a baseline printed next to it.
-
----
-
-```sql
-SHOW MODELS IN DATABASE portfolio;
-```
-
-<pre>
-                    ┌──────────────────────────┐
-   flagship ───────►│  <b>oncolake</b>               │  Snowflake clinical platform
-                    │  Snowpipe · Matillion    │  dual ingestion · SCD2 · Cortex
-                    │  dbt · Streamlit · Claude│
-                    └────────────┬─────────────┘
-                                 │ shares extraction lineage
-                                 ▼
-                    ┌──────────────────────────┐
-                    │  <b>oncology-notes</b>         │  0.908 micro-F1 vs 0.884 baseline
-                    │  Claude · Airflow · dbt  │  HIPAA Safe Harbor gate
-                    └──────────────────────────┘
-
-                    ┌──────────────────────────┐
-                    │  <b>realtime-ai-pipeline</b>   │  1.5M+ events · 0.896 anomaly F1
-                    │  Kafka · ClickHouse      │  13 Docker services
-                    └──────────────────────────┘
-
-                    ┌──────────────┐    ┌──────────────┐
-                    │ <b>airflow-aws</b>  │ ~~ │ <b>airflow-gcp</b>  │  same DAG, two architectures
-                    │ ECS Fargate  │    │ Compute VM   │  built to compare, not assert
-                    └──────────────┘    └──────────────┘
-
-                    ┌──────────────────────────┐
-                    │  <b>pyspark-optimization</b>   │  47s → 18s (61% cut)
-                    │  Spark UI · Parquet      │  200 partitions → 1
-                    └──────────────────────────┘
-</pre>
-
-```
-6 models. Expand any row below.
-```
-
----
-
-<details>
-<summary><b>▶ &nbsp;oncolake</b> &nbsp;<code>Snowflake · Matillion · Snowpipe · dbt · Claude API · Streamlit</code></summary>
+</div>
 
 <br/>
 
-**[github.com/KRISHNA-05-06/oncolake](https://github.com/KRISHNA-05-06/oncolake)**
+I spent four years building ETL on AWS for a banking client, moving 200M+ financial records a day across 100+ orchestrated jobs. What I have been building since is the layer on top of that: pipelines where an LLM does the extraction that regex cannot, inside a warehouse that still governs the result.
 
-Cancer centers hold stage, site, and treatment inside free text notes. Registry reporting and cohort research need it structured and governed. This is that pipeline, on fully synthetic data.
+Right now that means **[OncoLake](https://github.com/KRISHNA-05-06/oncolake)**, a Snowflake native clinical research platform built entirely on synthetic oncology data.
 
-```sql
--- the thing this repo exists to make possible
-SELECT ajcc_stage, COUNT(DISTINCT patient_id) AS patients
-FROM   ONCOLAKE.MARTS.COHORT_DATA_MART
-WHERE  primary_site = 'lung'
-GROUP  BY 1 ORDER BY 1;
+> If I put an accuracy number in a README, there is a baseline printed next to it.
+> A score with nothing to compare it to is a decoration, not a result.
+
+<br/>
+
+---
+
+## Featured work
+
+### [OncoLake](https://github.com/KRISHNA-05-06/oncolake)
+*Snowflake clinical research data platform*
+
+Cancer centers keep stage, site, and treatment locked inside free text notes. Registry reporting and cohort research need that as structured, queryable data. OncoLake is that path end to end, on fully synthetic records.
+
+Clinical data arrives three ways and lands in one warehouse. Lab results come in through **Snowpipe** on an S3 event and through **Matillion** on a schedule, into the same table, with each path's fingerprint still visible in the metadata columns. Clinical notes go through **Claude** and come back as schema conformant JSON. **dbt** builds the marts, including an SCD Type 2 patient dimension, so a patient at stage IIIA in January and stage IV in March keeps both rows. A **Streamlit in Snowflake** app serves the cohort, with no external hosting.
+
+```
+Clinical notes · Lab results · Pathology JSON
+        │
+        ├── Matillion ELT ──┐
+        ├── Snowpipe ───────┼──► RAW ──► STAGING ──► MARTS ──► Streamlit
+        └── COPY (VARIANT) ─┘         LLM + DQ gate   SCD2      cohort explorer
 ```
 
-| Layer | What happens |
-|---|---|
-| **RAW** | Three source shapes land as-ingested. Snowpipe (event driven, S3 to SQS) and Matillion (orchestrated) write to the same table, each path's lineage still visible in the metadata columns. |
-| **STAGING** | Claude API abstracts clinical notes into schema conformant JSON. Data quality gate before anything moves. Cortex native SQL included for paid accounts. |
-| **MARTS** | dbt builds `dim_patient` as SCD Type 2, so a patient at stage IIIA in January and stage IV in March keeps both rows. 5/5 tests passing. |
-| **SERVING** | Streamlit in Snowflake cohort explorer. No external hosting. |
+**5/5 dbt data quality tests passing.** The tuning experiment is the part I would talk about in an interview: I set out to prove clustering made a query faster, and it did not. Low cardinality keys prune nothing, high cardinality keys trigger expensive reclustering, and measuring immediately after `ALTER TABLE ... CLUSTER BY` captures churn rather than steady state. That negative result is documented with the Query Profile screenshots that show it.
 
-**The finding I did not expect:** I set out to prove clustering made a query faster. It did not. Low cardinality keys prune nothing, high cardinality keys trigger expensive reclustering, and measuring right after `ALTER TABLE ... CLUSTER BY` captures churn instead of steady state. Documented in `snowflake/tuning/before_after.md`, with the Query Profile screenshots that show it.
+`Snowflake` `Matillion` `Snowpipe` `dbt` `AWS` `Claude API` `Streamlit` `Airflow`
+
+<br/>
+
+### [Oncology Notes Extraction](https://github.com/KRISHNA-05-06/oncology-notes-extraction)
+*Clinical NLP, benchmarked against a baseline*
+
+Most LLM extraction projects report an accuracy number with nothing beside it. This one runs a rule based NLP baseline over the same notes on every run.
+
+Claude reaches **0.908 micro-F1** against the baseline's **0.884**. On its own a 2.4 point lift is unremarkable, and that is the interesting part: the overall number hides where the work actually happens. On biomarkers the split is **1.000 versus 0.526**, because regex handles formulaic phrasing perfectly well and then falls apart on `HER2 3+` and `EGFR exon 19 deletion`. That gap is the argument for using an LLM here at all, and it only shows up because the baseline is there to expose it.
+
+HIPAA Safe Harbor de-identification runs as a hard gate before extraction, scrubbing 2.6 identifiers per note. Primary sites standardize to ICD-O-3 registry codes through a dbt seed join.
+
+`Claude API` `Airflow` `Snowflake` `dbt` `ICD-O-3` `HIPAA Safe Harbor`
+
+<br/>
+
+### [Real-Time AI Event Intelligence](https://github.com/KRISHNA-05-06/realtime-ai-pipeline)
+*Streaming anomaly detection across 13 services*
+
+High volume event streams need anomalies caught in flight, not in tomorrow's batch report. Events land through Kafka consumer groups into ClickHouse, where an Isolation Forest scores them in real time and an LLM classifies intent.
+
+**1.5M+ events** processed at sub-second latency, **0.896 anomaly F1**, 21/21 CI tests passing across 13 Docker services.
+
+`Kafka` `ClickHouse` `Docker` `Isolation Forest` `GitHub Actions`
+
+<br/>
+
+---
+
+## More builds
+
+<details>
+<summary><b>Airflow, deployed two ways</b> &nbsp;·&nbsp; AWS ECS Fargate and GCP Compute Engine</summary>
+
+<br/>
+
+**[AWS deployment](https://github.com/KRISHNA-05-06/airflow-aws-deployment)** &nbsp;|&nbsp; **[GCP deployment](https://github.com/KRISHNA-05-06/airflow-gcp-deployment)**
+
+The same ETL pipeline deployed twice with deliberately different architectures, so I could compare the tradeoffs directly instead of repeating what a blog post claimed.
+
+On AWS: a custom Airflow 3.0 image in ECR, all four components running as serverless ECS Fargate tasks, RDS PostgreSQL for metadata, and the UI exposed through an Application Load Balancer. On GCP: one Compute Engine VM running everything through docker-compose, with keyless GCS auth via the VM's metadata server.
+
+The two failures taught me more than the deploys. The ALB health checks timed out in a loop until I traced it to a missing security group rule on port 8080. The GCP API server crash looped until I cut it to a single Uvicorn worker, because Airflow 3's default does not fit in 4 GB.
+
+`Airflow 3.0` `ECS Fargate` `ECR` `RDS` `ALB` `Compute Engine` `GCS` `Docker Compose`
 
 </details>
 
 <details>
-<summary><b>▶ &nbsp;oncology-notes-extraction</b> &nbsp;<code>Claude API · Airflow · Snowflake · dbt · ICD-O-3</code></summary>
-
-<br/>
-
-**[github.com/KRISHNA-05-06/oncology-notes-extraction](https://github.com/KRISHNA-05-06/oncology-notes-extraction)**
-
-Most LLM extraction projects report an accuracy number with nothing to compare it to. This one runs a rule based NLP baseline on the same data, every time.
-
-| Metric | Claude | Rule based baseline |
-|---|---|---|
-| Micro-F1, all fields | **0.908** | 0.884 |
-| Biomarker F1 | **1.000** | 0.526 |
-
-The gap is the whole point. Regex handles formulaic phrasing fine. It falls apart on `HER2 3+` and `EGFR exon 19 deletion`, which is exactly where the LLM earns its cost. A 2.4 point overall lift hides a 47 point lift on the field that actually varies.
-
-HIPAA Safe Harbor de-identification runs as a hard gate before extraction, 2.6 identifiers scrubbed per note. Primary sites standardize to ICD-O-3 registry codes through a dbt seed join.
-
-</details>
-
-<details>
-<summary><b>▶ &nbsp;realtime-ai-pipeline</b> &nbsp;<code>Kafka · ClickHouse · Docker · Isolation Forest</code></summary>
-
-<br/>
-
-**[github.com/KRISHNA-05-06/realtime-ai-pipeline](https://github.com/KRISHNA-05-06/realtime-ai-pipeline)**
-
-High volume event streams need anomalies caught in flight, not in tomorrow's batch report.
-
-```text
-producer ──► Kafka topics ──► ClickHouse ──┬──► Isolation Forest  (F1 = 0.896)
-             consumer groups               └──► LLM intent classification
-```
-
-1.5M+ events at sub-second latency, across 13 Docker services, 21/21 CI tests passing.
-
-</details>
-
-<details>
-<summary><b>▶ &nbsp;airflow-aws-deployment &nbsp;~~&nbsp; airflow-gcp-deployment</b> &nbsp;<code>ECS Fargate vs Compute Engine</code></summary>
-
-<br/>
-
-**[AWS](https://github.com/KRISHNA-05-06/airflow-aws-deployment)** &nbsp;|&nbsp; **[GCP](https://github.com/KRISHNA-05-06/airflow-gcp-deployment)**
-
-The same ETL pipeline, deployed twice with deliberately different architectures. Built so I could compare the tradeoffs directly instead of repeating what a blog post said.
-
-| | AWS | GCP |
-|---|---|---|
-| Compute | ECS Fargate, serverless, 4 tasks | One Compute Engine VM, docker-compose |
-| Metadata | Amazon RDS PostgreSQL | Containerized PostgreSQL |
-| Access | Application Load Balancer | Firewall restricted port |
-| Auth | IAM task roles | Keyless, VM metadata server |
-
-**Two failures worth more than the deploys.** On AWS, the ALB health checks timed out in a loop until I traced it to a missing security group rule on 8080. On GCP, the Airflow 3 API server crash looped until I cut it to a single Uvicorn worker, because 4 GB does not fit the default.
-
-</details>
-
-<details>
-<summary><b>▶ &nbsp;pyspark-etl-optimization</b> &nbsp;<code>PySpark · Spark UI · Parquet</code></summary>
+<summary><b>PySpark performance tuning</b> &nbsp;·&nbsp; 47s to 18s</summary>
 
 <br/>
 
 **[github.com/KRISHNA-05-06/PySpark-ETL-Pipeline-Optimization](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline-Optimization)**
 
-Read the Spark UI instead of guessing. Found redundant `.count()` actions, 200 partitions holding 75 records, and repeated full scans with no caching.
+Read the Spark UI instead of guessing at it. The bottlenecks were redundant `.count()` actions, 200 partitions holding 75 records, and repeated full scans with no caching.
 
-| | Before | After |
-|---|---|---|
-| Runtime | 47s | **18s** |
-| Partitions | 200 | 1 |
+Applied predicate pushdown, strategic caching, coalesce based repartitioning, and collapsed multiple aggregations into a single `.agg()` pass. Runtime dropped from **47 seconds to roughly 18**, a 61% cut, with partitions down from 200 to 1 and the small file problem gone with it.
 
-Predicate pushdown, strategic caching, coalesce based repartitioning, and multiple aggregations collapsed into one `.agg()` pass.
+`PySpark` `Spark UI` `Parquet` `Docker`
 
 </details>
 
 <details>
-<summary><b>▶ &nbsp;also in the warehouse</b> &nbsp;<code>4 more</code></summary>
+<summary><b>Production Airflow ETL pipelines</b> &nbsp;·&nbsp; git-sync auto-deploy</summary>
 
 <br/>
 
-- **[airflow_dags](https://github.com/KRISHNA-05-06/airflow_dags)** &nbsp;·&nbsp; dynamic task mapping with `.expand()`, git-sync deploying DAGs every 30s, CI validating syntax pre-deploy
-- **[PySpark-ETL-Pipeline](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline)** &nbsp;·&nbsp; three messy order sources unified with `unionByName` and `PERMISSIVE` mode, no rows dropped
-- **[python-postgres-etl-pipeline](https://github.com/KRISHNA-05-06/python-postgres-etl-pipeline)** &nbsp;·&nbsp; multi-stage Docker build, non-root user, health-gated `depends_on`
-- **[ai-job-hunter](https://github.com/KRISHNA-05-06/ai-job-hunter)** &nbsp;·&nbsp; four job boards scraped on cron, LLM relevance scoring, serverless via GitHub Actions
+**[github.com/KRISHNA-05-06/airflow_dags](https://github.com/KRISHNA-05-06/airflow_dags)**
+
+Two pipelines built the way a real team ships DAGs. A multi-region market data pipeline uses dynamic task mapping with `.expand()` to run four parallel Extract, Transform, Load chains. A books pipeline pulls 50 real titles from the Open Library API and loads MySQL with a truncate-and-insert idempotency pattern.
+
+A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual restarts, and GitHub Actions validates DAG syntax before anything reaches the scheduler.
+
+`Airflow 3.0` `Docker` `MySQL` `git-sync` `GitHub Actions` `XCom`
 
 </details>
 
----
+<details>
+<summary><b>Three more</b> &nbsp;·&nbsp; PySpark ETL, containerized ETL, job intelligence</summary>
 
-```sql
-SELECT * FROM experience ORDER BY start_date DESC;
-```
+<br/>
 
-**Prospect Infosystem Inc.** &nbsp;·&nbsp; Data Engineer &nbsp;·&nbsp; `2021-05` to `2024-07`
-Client: DBS Bank, banking and financial services
+**[Grocery ETL (PySpark)](https://github.com/KRISHNA-05-06/PySpark-ETL-Pipeline)** &nbsp;·&nbsp; Three messy order sources unified with `unionByName` and `PERMISSIVE` mode so malformed rows surface instead of vanishing, then Spark SQL validation checks on price, date range, and record count.
 
-| | |
-|---|---|
-| Volume | 200M+ financial records processed daily |
-| Orchestration | 100+ ETL jobs across Apache Airflow and IBM Tivoli Workload Scheduler |
-| Stack | AWS S3, Glue, Spark, Redshift, Athena |
-| Modeling | Business validation rules translated into Hive dimensional marts for regulatory reporting |
+**[Containerized ETL](https://github.com/KRISHNA-05-06/python-postgres-etl-pipeline)** &nbsp;·&nbsp; Multi-stage Docker build, non-root application user, and a PostgreSQL health check gating `depends_on: service_healthy` so the ETL never starts against a cold database.
 
----
+**[AI Job Hunter](https://github.com/KRISHNA-05-06/ai-job-hunter)** &nbsp;·&nbsp; Four job boards scraped on a cron, deduplicated across sources, scored for relevance by an LLM, and delivered as an HTML digest. Fully serverless on GitHub Actions.
 
-```sql
--- Query profile: where the time actually goes
-EXPLAIN SELECT depth FROM skills;
-```
+</details>
 
-```text
-Snowflake · Snowpipe · Streams · Tasks · Cortex   ████████████████████░░  91%
-dbt · dimensional modeling · SCD2 · tests         ████████████████████░░  90%
-Apache Airflow · orchestration · scheduling       ███████████████████░░░  88%
-Python · SQL · PySpark · Spark UI tuning          ██████████████████░░░░  84%
-Claude API · MCP · structured LLM extraction      ██████████████████░░░░  82%
-AWS · S3 · Glue · Lambda · ECS · Redshift         ████████████████░░░░░░  76%
-Docker · GitHub Actions · CI/CD                   ███████████████░░░░░░░  71%
-Kafka · ClickHouse · streaming                    █████████████░░░░░░░░░  62%
-Matillion · GCP · Terraform                       ██████████░░░░░░░░░░░░  48%
-```
-
-```
-Partitions scanned: 9 of 9. No pruning. This is the honest version.
-```
+<br/>
 
 ---
 
-```sql
-SHOW GRANTS TO ROLE sri;
-```
+## Tools I build with
 
-| CREDENTIAL | ISSUER |
-|---|---|
-| Building with the Claude API | Anthropic |
-| Introduction to Model Context Protocol (MCP) | Anthropic |
-| Claude with Amazon Bedrock | Anthropic |
-| Claude with Google Cloud Vertex AI | Anthropic |
-| Data Engineer Certification | Dataquest |
+<div align="center">
+
+**Warehouse and modeling**
+
+![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
+![dbt](https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white)
+![Snowpipe](https://img.shields.io/badge/Snowpipe-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
+![Matillion](https://img.shields.io/badge/Matillion-19232D?style=flat-square&logo=matillion&logoColor=white)
+![Redshift](https://img.shields.io/badge/Redshift-8C4FFF?style=flat-square&logo=amazonredshift&logoColor=white)
+![ClickHouse](https://img.shields.io/badge/ClickHouse-FFCC01?style=flat-square&logo=clickhouse&logoColor=black)
+
+**Pipelines and processing**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
+![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)
+![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+
+**Cloud and delivery**
+
+![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
+![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
+
+**AI**
+
+![Claude API](https://img.shields.io/badge/Claude_API-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![MCP](https://img.shields.io/badge/MCP-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![Snowflake Cortex](https://img.shields.io/badge/Snowflake_Cortex-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+
+</div>
+
+<br/>
 
 ---
 
-```sql
--- Constraints I engineer under
-ALTER TABLE my_work ADD CONSTRAINT baselines_required
-  CHECK (accuracy_claim IS NULL OR baseline IS NOT NULL);
+## Background
 
-ALTER TABLE my_work ADD CONSTRAINT land_raw_model_later
-  CHECK (ingest_stage = 'as-is' AND typing_stage = 'downstream');
+**Data Engineer**, Prospect Infosystem Inc. &nbsp;·&nbsp; May 2021 to July 2024
+Client: DBS Bank. Designed ETL pipelines on AWS using S3, Glue, Spark, Redshift, and Athena, processing 200M+ financial records daily. Orchestrated 100+ ETL jobs across Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive dimensional marts for regulatory and analytical reporting.
 
-ALTER TABLE my_work ADD CONSTRAINT tests_are_infrastructure
-  CHECK (dbt_tests_passing = total_dbt_tests);
+**M.S. Computer Science**, University of South Florida &nbsp;·&nbsp; graduating May 2026
 
-ALTER TABLE my_work ADD CONSTRAINT negative_results_count
-  CHECK (finding IN ('it worked', 'it did not work and here is why'));
+**Certifications** &nbsp;·&nbsp; Building with the Claude API, Introduction to Model Context Protocol, Claude with Amazon Bedrock, and Claude with Google Cloud Vertex AI (Anthropic) &nbsp;·&nbsp; Data Engineer Certification (Dataquest)
 
-ALTER TABLE my_work ADD CONSTRAINT no_phi_ever
-  CHECK (data_source = 'synthetic');
-```
-
-```
-5 constraints added. All currently enforced.
-```
+<br/>
 
 ---
 
 <div align="center">
 
-<img height="150" src="https://github-readme-stats.vercel.app/api?username=KRISHNA-05-06&show_icons=true&hide_border=true&include_all_commits=true&hide=issues&title_color=29B5E8&icon_color=29B5E8&text_color=8b949e&bg_color=0d1117" />
-<img height="150" src="https://github-readme-stats.vercel.app/api/top-langs/?username=KRISHNA-05-06&layout=compact&hide_border=true&langs_count=6&title_color=29B5E8&text_color=8b949e&bg_color=0d1117" />
-
-</div>
-
----
-
-```sql
-COMMIT;
-```
-
 **Open to Data Engineer, AI Engineer, and ML Engineer roles.**
+
 [srikrishnasaikota1@gmail.com](mailto:srikrishnasaikota1@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/srikrishnasai/) &nbsp;·&nbsp; [Portfolio](https://krishna-05-06.github.io)
 
-```
-Statement executed successfully.
-Session closed. Thanks for scanning the partitions.
-```
+</div>
