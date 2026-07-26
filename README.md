@@ -152,15 +152,15 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 ![dbt](https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white)
 ![Snowpipe](https://img.shields.io/badge/Snowpipe-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
 ![Streams and Tasks](https://img.shields.io/badge/Streams_%26_Tasks-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
-![Matillion](https://img.shields.io/badge/Matillion-19232D?style=flat-square&logo=matillion&logoColor=white)
-![Redshift](https://img.shields.io/badge/Redshift-8C4FFF?style=flat-square&logo=amazonredshift&logoColor=white)
+![Matillion](https://img.shields.io/badge/Matillion-2A7DE1?style=flat-square&logo=matillion&logoColor=white)
+![Redshift](https://img.shields.io/badge/Amazon_Redshift-8C4FFF?style=flat-square&logo=amazonredshift&logoColor=white)
 ![ClickHouse](https://img.shields.io/badge/ClickHouse-FFCC01?style=flat-square&logo=clickhouse&logoColor=black)
 
 **Processing, streaming and orchestration**
 
 ![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
 ![Hadoop](https://img.shields.io/badge/Hadoop-66CCFF?style=flat-square&logo=apachehadoop&logoColor=black)
-![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache_Kafka-4A4A55?style=flat-square&logo=apachekafka&logoColor=white)
 ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)
 
 **Databases**
@@ -171,7 +171,7 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 
 **Cloud and delivery**
 
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonaws&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonwebservices&logoColor=white)
 ![GCP](https://img.shields.io/badge/GCP-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
