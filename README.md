@@ -200,7 +200,7 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 **Data Engineer**, Prospect Infosystem Inc. &nbsp;·&nbsp; May 2021 to July 2024
 Client: DBS Bank. Designed ETL pipelines on AWS using S3, Glue, Spark, Redshift, and Athena, processing 200M+ financial records daily. Orchestrated 100+ ETL jobs across Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive dimensional marts for regulatory and analytical reporting.
 
-**M.S. Computer Science**, University of South Florida &nbsp;·&nbsp; graduating May 2026
+**M.S. Computer Science**, University of South Florida &nbsp;·&nbsp; graduated May 2026
 
 **Certifications** &nbsp;·&nbsp; Building with the Claude API, Introduction to Model Context Protocol, Claude with Amazon Bedrock, and Claude with Google Cloud Vertex AI (Anthropic) &nbsp;·&nbsp; Data Engineer Certification (Dataquest)
 
