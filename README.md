@@ -17,9 +17,6 @@ I spent four years building ETL on AWS for a banking client, moving 200M+ financ
 
 Right now that means **[OncoLake](https://github.com/KRISHNA-05-06/oncolake)**, a Snowflake native clinical research platform built entirely on synthetic oncology data.
 
-> If I put an accuracy number in a README, there is a baseline printed next to it.
-> A score with nothing to compare it to is a decoration, not a result.
-
 <br/>
 
 ---
@@ -143,22 +140,34 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 
 <div align="center">
 
-**Warehouse and modeling**
+**Languages**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
+
+**Warehouse, ingestion and modeling**
 
 ![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
 ![dbt](https://img.shields.io/badge/dbt-FF694B?style=flat-square&logo=dbt&logoColor=white)
 ![Snowpipe](https://img.shields.io/badge/Snowpipe-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
+![Streams and Tasks](https://img.shields.io/badge/Streams_%26_Tasks-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
 ![Matillion](https://img.shields.io/badge/Matillion-19232D?style=flat-square&logo=matillion&logoColor=white)
 ![Redshift](https://img.shields.io/badge/Redshift-8C4FFF?style=flat-square&logo=amazonredshift&logoColor=white)
 ![ClickHouse](https://img.shields.io/badge/ClickHouse-FFCC01?style=flat-square&logo=clickhouse&logoColor=black)
 
-**Pipelines and processing**
+**Processing, streaming and orchestration**
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 ![PySpark](https://img.shields.io/badge/PySpark-E25A1C?style=flat-square&logo=apachespark&logoColor=white)
+![Hadoop](https://img.shields.io/badge/Hadoop-66CCFF?style=flat-square&logo=apachehadoop&logoColor=black)
+![Kafka](https://img.shields.io/badge/Apache_Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
 ![Airflow](https://img.shields.io/badge/Airflow-017CEE?style=flat-square&logo=apacheairflow&logoColor=white)
-![Kafka](https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+
+**Databases**
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
 
 **Cloud and delivery**
 
@@ -168,12 +177,17 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 
-**AI**
+<sub>AWS: S3 · Glue · Lambda · EMR · EC2 · ECS Fargate · ECR · RDS · Redshift · Athena · SQS · Secrets Manager · IAM &nbsp;&nbsp;|&nbsp;&nbsp; GCP: Compute Engine · Cloud Storage · IAM</sub>
+
+**AI and ML**
 
 ![Claude API](https://img.shields.io/badge/Claude_API-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-D97757?style=flat-square&logo=anthropic&logoColor=white)
 ![Snowflake Cortex](https://img.shields.io/badge/Snowflake_Cortex-29B5E8?style=flat-square&logo=snowflake&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
+
+<sub>LLM structured extraction · Isolation Forest anomaly detection · HIPAA Safe Harbor de-identification · ICD-O-3 coding</sub>
 
 </div>
 
