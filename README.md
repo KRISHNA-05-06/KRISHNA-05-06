@@ -13,7 +13,7 @@
 
 <br/>
 
-I spent three years as a Data Engineer building ETL on AWS for large-scale financial and regulatory workloads, moving 200M+ records a day across 100+ orchestrated jobs, and later led an on-premises-to-cloud warehouse migration to Snowflake. What I have been building since is the layer on top of that: pipelines where an LLM does the extraction that regex cannot, inside a warehouse that still governs the result.
+Over four years as a Data Engineer I built ETL on AWS for large-scale financial and regulatory workloads, moving 200M+ records a day across 100+ orchestrated jobs, and led an on-premises-to-cloud warehouse migration to Snowflake. What I have been building since is the layer on top of that: pipelines where an LLM does the extraction that regex cannot, inside a warehouse that still governs the result.
 
 Right now that means **[OncoLake](https://github.com/KRISHNA-05-06/oncolake)**, a Snowflake native clinical research platform built entirely on synthetic oncology data.
 
@@ -197,10 +197,10 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 
 ## Background
 
-**Data Engineer**, Kunosol Tech &nbsp;·&nbsp; Aug 2023 to July 2024
+**Data Engineer**, Kunosol Tech LLC &nbsp;·&nbsp; May 2025 to Present
 Led an on-premises-to-cloud data warehouse migration to AWS and Snowflake, cutting storage costs by 38% and query latency from 14 minutes to under 4. Built a clinical data lake on S3 with Matillion ETL across 12+ source systems, delivered enhancements on a Snowflake Enterprise Data Platform at 99.3% SLA, and ran DataOps automation that reduced incident detection time by 52%.
 
-**Data Engineer**, W3Softech India Pvt Ltd &nbsp;·&nbsp; May 2021 to Aug 2023
+**Data Engineer**, W3Softech India Pvt Ltd &nbsp;·&nbsp; May 2021 to July 2024
 Designed and implemented scalable ETL pipelines on AWS using S3, Glue, Spark, Redshift, and Athena, processing 200M+ financial records daily and reducing job runtime by 30%. Orchestrated 100+ ETL jobs across Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive dimensional marts for regulatory and analytical reporting.
 
 **M.S. Computer Science**, University of South Florida &nbsp;·&nbsp; Aug 2024 to May 2026
