@@ -13,7 +13,7 @@
 
 <br/>
 
-I spent four years building ETL on AWS for a banking client, moving 200M+ financial records a day across 100+ orchestrated jobs. What I have been building since is the layer on top of that: pipelines where an LLM does the extraction that regex cannot, inside a warehouse that still governs the result.
+I spent three years as a Data Engineer building ETL on AWS for large-scale financial and regulatory workloads, moving 200M+ records a day across 100+ orchestrated jobs, and later led an on-premises-to-cloud warehouse migration to Snowflake. What I have been building since is the layer on top of that: pipelines where an LLM does the extraction that regex cannot, inside a warehouse that still governs the result.
 
 Right now that means **[OncoLake](https://github.com/KRISHNA-05-06/oncolake)**, a Snowflake native clinical research platform built entirely on synthetic oncology data.
 
@@ -62,7 +62,7 @@ HIPAA Safe Harbor de-identification runs as a hard gate before extraction, scrub
 
 High volume event streams need anomalies caught in flight, not in tomorrow's batch report. Events land through Kafka consumer groups into ClickHouse, where an Isolation Forest scores them in real time and an LLM classifies intent.
 
-**1.5M+ events** processed at sub-second latency, **0.896 anomaly F1**, 21/21 CI tests passing across 13 Docker services.
+**1.56M+ events** processed at sub-second latency, **0.896 anomaly F1**, 21/21 CI tests passing across 13 Docker services.
 
 `Kafka` `ClickHouse` `Docker` `Isolation Forest` `GitHub Actions`
 
@@ -177,7 +177,7 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 
-<sub>AWS: S3 · Glue · Lambda · EMR · EC2 · ECS Fargate · ECR · RDS · Redshift · Athena · SQS · Secrets Manager · IAM &nbsp;&nbsp;|&nbsp;&nbsp; GCP: Compute Engine · Cloud Storage · IAM</sub>
+<sub>AWS: S3 · Glue · Lambda · EMR · ECS Fargate · ECR · RDS · Redshift · Athena · SQS · Secrets Manager · IAM &nbsp;&nbsp;|&nbsp;&nbsp; GCP: Compute Engine · Cloud Storage · IAM</sub>
 
 **AI and ML**
 
@@ -197,10 +197,13 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 
 ## Background
 
-**Data Engineer**, Prospect Infosystem Inc. &nbsp;·&nbsp; May 2021 to July 2024
-Client: DBS Bank. Designed ETL pipelines on AWS using S3, Glue, Spark, Redshift, and Athena, processing 200M+ financial records daily. Orchestrated 100+ ETL jobs across Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive dimensional marts for regulatory and analytical reporting.
+**Data Engineer**, Kunosol Tech &nbsp;·&nbsp; Aug 2023 to July 2024
+Led an on-premises-to-cloud data warehouse migration to AWS and Snowflake, cutting storage costs by 38% and query latency from 14 minutes to under 4. Built a clinical data lake on S3 with Matillion ETL across 12+ source systems, delivered enhancements on a Snowflake Enterprise Data Platform at 99.3% SLA, and ran DataOps automation that reduced incident detection time by 52%.
 
-**M.S. Computer Science**, University of South Florida &nbsp;·&nbsp; graduated May 2026
+**Data Engineer**, W3Softech India Pvt Ltd &nbsp;·&nbsp; May 2021 to Aug 2023
+Designed and implemented scalable ETL pipelines on AWS using S3, Glue, Spark, Redshift, and Athena, processing 200M+ financial records daily and reducing job runtime by 30%. Orchestrated 100+ ETL jobs across Apache Airflow and IBM Tivoli Workload Scheduler, and translated business validation rules into Hive dimensional marts for regulatory and analytical reporting.
+
+**M.S. Computer Science**, University of South Florida &nbsp;·&nbsp; Aug 2024 to May 2026
 
 **Certifications** &nbsp;·&nbsp; Building with the Claude API, Introduction to Model Context Protocol, Claude with Amazon Bedrock, and Claude with Google Cloud Vertex AI (Anthropic) &nbsp;·&nbsp; Data Engineer Certification (Dataquest)
 
@@ -210,7 +213,7 @@ Client: DBS Bank. Designed ETL pipelines on AWS using S3, Glue, Spark, Redshift,
 
 <div align="center">
 
-**Open to Data Engineer, AI Engineer, and ML Engineer roles.**
+**Open to Data Engineer, AI Engineer, and Analytics Engineer roles.**
 
 [srikrishnasaikota1@gmail.com](mailto:srikrishnasaikota1@gmail.com) &nbsp;·&nbsp; [LinkedIn](https://linkedin.com/in/srikrishnasai/) &nbsp;·&nbsp; [Portfolio](https://krishna-05-06.github.io)
 
