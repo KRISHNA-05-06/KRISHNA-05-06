@@ -197,7 +197,7 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 
 ## Background
 
-**Data Engineer**, Kunosol Tech LLC &nbsp;·&nbsp; May 2025 to Present
+**Data Engineer**, University of South Florida - USF &nbsp;·&nbsp; December 2024 to May 2026
 Led an on-premises-to-cloud data warehouse migration to AWS and Snowflake, cutting storage costs by 38% and query latency from 14 minutes to under 4. Built a clinical data lake on S3 with Matillion ETL across 12+ source systems, delivered enhancements on a Snowflake Enterprise Data Platform at 99.3% SLA, and ran DataOps automation that reduced incident detection time by 52%.
 
 **Data Engineer**, W3Softech India Pvt Ltd &nbsp;·&nbsp; May 2021 to July 2024
