@@ -28,7 +28,7 @@ Over four years as a Data Engineer I built ETL on AWS for large-scale financial 
 
 A missing heartbeat does not tell you whether a device stopped reporting or its data was rejected on the way in. This project follows the evidence across **Kinesis**, **Lambda**, **S3**, and **PostgreSQL**, using synthetic telemetry rather than live Ring devices.
 
-A local **MCP server** gives Claude **17 tools and three resources** for checking device health, tracing rejected events, reviewing event history, and checking ingestion consistency. A local dashboard makes the same evidence accessible without a chat session.
+A local **MCP server** gives Claude **17 tools and three resources** for checking device health, tracing rejected events, reviewing event history, and checking ingestion consistency. A reusable investigation prompt guides the workflow, and a local dashboard makes the same evidence accessible without a chat session. A bounded simulator generates synthetic heartbeats; CloudWatch alarm definitions cover Lambda errors, throttling, and stream lag.
 
 Recovery is deliberately separate from investigation. Corrections are previewed and saved as exact proposals, then require approval from an independent operator before replay. Backend validation and IAM enforce that boundary. Replay goes back through the validator, ingestion is checked separately, and the original rejection stays available for inspection.
 
@@ -41,7 +41,7 @@ Recovery is deliberately separate from investigation. Corrections are previewed 
 
 Cancer centers keep stage, site, and treatment locked inside free text notes. Registry reporting and cohort research need that as structured, queryable data. OncoLake is that path end to end, on fully synthetic records.
 
-Clinical data arrives three ways and lands in one warehouse. Lab results come in through **Snowpipe** on an S3 event and through **Matillion** on a schedule, into the same table, with each path's fingerprint still visible in the metadata columns. Clinical notes go through **Claude** and come back as schema conformant JSON. **dbt** builds the marts, including an SCD Type 2 patient dimension, so a patient at stage IIIA in January and stage IV in March keeps both rows. A **Streamlit in Snowflake** app serves the cohort, with no external hosting.
+Clinical data arrives three ways and lands in one warehouse. Lab results come in through **Snowpipe** on an S3 event and through **Matillion** on a schedule, into the same table, with each path's fingerprint still visible in the metadata columns. Clinical notes go through **Claude** and come back as schema conformant JSON. **dbt** builds the marts, including an SCD Type 2 patient dimension, so a patient at stage IIIA in January and stage IV in March keeps both rows. Pathology JSON lands in **VARIANT**, and the diagnosis mart maps primary sites to **ICD-O-3** codes. A **Streamlit in Snowflake** app serves the cohort, with no external hosting. Extraction uses the **Claude API**; the repository also includes **Cortex SQL** as an alternative for a paid Snowflake environment.
 
 ```
 Clinical notes · Lab results · Pathology JSON
@@ -51,7 +51,7 @@ Clinical notes · Lab results · Pathology JSON
         └── COPY (VARIANT) ─┘         LLM + DQ gate   SCD2      cohort explorer
 ```
 
-**5/5 dbt data quality tests passing.** The tuning experiment is the part I would talk about in an interview: I set out to prove clustering made a query faster, and it did not. Low cardinality keys prune nothing, high cardinality keys trigger expensive reclustering, and measuring immediately after `ALTER TABLE ... CLUSTER BY` captures churn rather than steady state. That negative result is documented with the Query Profile screenshots that show it.
+**Five dbt data-quality tests are defined; the project documents a passing run.** The tuning experiment is the part I would talk about in an interview: I set out to prove clustering made a query faster, and it did not. Low cardinality keys prune nothing, high cardinality keys trigger expensive reclustering, and measuring immediately after `ALTER TABLE ... CLUSTER BY` captures churn rather than steady state. That negative result is documented with the Query Profile screenshots that show it.
 
 `Snowflake` `Matillion` `Snowpipe` `dbt` `AWS` `Claude API` `Streamlit` `Airflow`
 
@@ -190,7 +190,7 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
 
-<sub>AWS: S3 · Glue · Lambda · EMR · ECS Fargate · ECR · RDS · Redshift · Athena · SQS · Secrets Manager · IAM &nbsp;&nbsp;|&nbsp;&nbsp; GCP: Compute Engine · Cloud Storage · IAM</sub>
+<sub>AWS: S3 · Glue · Lambda · Kinesis · CloudWatch · EMR · ECS Fargate · ECR · RDS · Redshift · Athena · SQS · Secrets Manager · IAM &nbsp;&nbsp;|&nbsp;&nbsp; GCP: Compute Engine · Cloud Storage · IAM</sub>
 
 **AI and ML**
 
@@ -200,7 +200,7 @@ A git-sync sidecar deploys DAGs from GitHub every 30 seconds, so no manual resta
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white)
 ![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=flat-square&logo=huggingface&logoColor=black)
 
-<sub>LLM structured extraction · Isolation Forest anomaly detection · HIPAA Safe Harbor de-identification · ICD-O-3 coding</sub>
+<sub>LLM structured extraction · MCP tools and resources · Operator-approved recovery (synthetic telemetry project) · Isolation Forest anomaly detection · HIPAA Safe Harbor de-identification · ICD-O-3 coding</sub>
 
 </div>
 
