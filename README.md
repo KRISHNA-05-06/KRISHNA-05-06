@@ -23,6 +23,19 @@ Right now that means **[OncoLake](https://github.com/KRISHNA-05-06/oncolake)**, 
 
 ## Featured work
 
+### [Device Investigation and Recovery with MCP](https://github.com/KRISHNA-05-06/ring-device-investigation)
+*Synthetic device telemetry, investigation, and operator-approved recovery on AWS*
+
+A missing heartbeat does not tell you whether a device stopped reporting or its data was rejected on the way in. This project follows the evidence across **Kinesis**, **Lambda**, **S3**, and **PostgreSQL**, using synthetic telemetry rather than live Ring devices.
+
+A local **MCP server** gives Claude **17 tools and three resources** for checking device health, tracing rejected events, reviewing event history, and checking ingestion consistency. A local dashboard makes the same evidence accessible without a chat session.
+
+Recovery is deliberately separate from investigation. Corrections are previewed and saved as exact proposals, then require approval from an independent operator before replay. Backend validation and IAM enforce that boundary. Replay goes back through the validator, ingestion is checked separately, and the original rejection stays available for inspection.
+
+`Python` `MCP` `Claude` `Kinesis` `Lambda` `S3` `PostgreSQL` `IAM` `CloudWatch`
+
+<br/>
+
 ### [OncoLake](https://github.com/KRISHNA-05-06/oncolake)
 *Snowflake clinical research data platform*
 
@@ -65,19 +78,6 @@ High volume event streams need anomalies caught in flight, not in tomorrow's bat
 **1.56M+ events** processed at sub-second latency, **0.896 anomaly F1**, 21/21 CI tests passing across 13 Docker services.
 
 `Kafka` `ClickHouse` `Docker` `Isolation Forest` `GitHub Actions`
-
-<br/>
-
-### [Device Investigation and Recovery with MCP](https://github.com/KRISHNA-05-06/ring-device-investigation)
-*Synthetic device telemetry, investigation, and operator-approved recovery on AWS*
-
-A missing heartbeat does not tell you whether a device stopped reporting or its data was rejected on the way in. This project follows the evidence across **Kinesis**, **Lambda**, **S3**, and **PostgreSQL**, using synthetic telemetry rather than live Ring devices.
-
-A local **MCP server** gives Claude **17 tools and three resources** for checking device health, tracing rejected events, reviewing event history, and checking ingestion consistency. A local dashboard makes the same evidence accessible without a chat session.
-
-Recovery is deliberately separate from investigation. Corrections are previewed and saved as exact proposals, then require approval from an independent operator before replay. Backend validation and IAM enforce that boundary. Replay goes back through the validator, ingestion is checked separately, and the original rejection stays available for inspection.
-
-`Python` `MCP` `Claude` `Kinesis` `Lambda` `S3` `PostgreSQL` `IAM` `CloudWatch`
 
 <br/>
 
