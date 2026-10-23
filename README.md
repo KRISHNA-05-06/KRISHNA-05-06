@@ -15,7 +15,7 @@
 
 Over four years as a Data Engineer I built ETL on AWS for large-scale financial and regulatory workloads, moving 200M+ records a day across 100+ orchestrated jobs, and worked on an on-premises-to-cloud warehouse migration to Snowflake. What I have been building since is the layer on top of that: pipelines where an LLM does the extraction that regex cannot, inside a warehouse that still governs the result. My **[Ring device investigation project](https://github.com/KRISHNA-05-06/ring-device-investigation)** uses synthetic telemetry on AWS and MCP tools for investigation and operator-approved recovery.
 
-Right now that means **[OncoLake](https://github.com/KRISHNA-05-06/oncolake)**, a Snowflake native clinical research platform built entirely on synthetic oncology data.
+**[OncoLake](https://github.com/KRISHNA-05-06/oncolake)** is a Snowflake-native clinical research platform built entirely on synthetic oncology data.
 
 <br/>
 
